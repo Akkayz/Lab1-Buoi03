@@ -73,10 +73,18 @@ const App = () => {
             <TextInput style={styles.input} placeholder="Enter text here" />
             <View style={[styles.buttonRow, { width: screenWidth }]}>
               <View style={{ width: screenWidth / 3 }}>
-                <Button title="Button 1" onPress={() => {}} color="blue" />
+                <Button
+                  title="Button 1"
+                  onPress={() => {}}
+                  color={Platform.select({ ios: "blue", android: "green" })}
+                />
               </View>
               <View style={{ width: screenWidth / 3 }}>
-                <Button title="Button 2" onPress={() => {}} color="blue" />
+                <Button
+                  title="Button 2"
+                  onPress={() => {}}
+                  color={Platform.select({ ios: "blue", android: "green" })}
+                />
               </View>
             </View>
           </View>
@@ -89,6 +97,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: Platform.select({ ios: 20, android: 10 }),
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -106,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonContainer: {
-    padding: 10,
+    padding: Platform.select({ ios: 15, android: 10 }),
   },
   buttonRow: {
     flexDirection: "row",
