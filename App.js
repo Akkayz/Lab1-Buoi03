@@ -33,7 +33,7 @@ const App = () => {
 
   const { width: screenWidth } = Dimensions.get("window");
   const imageWidth = screenWidth * 0.8;
-  const imageHeight = isPortrait ? imageWidth * (9 / 16) : imageWidth * (1 / 5); // Giảm chiều cao hình ảnh trong chế độ ngang
+  const imageHeight = isPortrait ? imageWidth * (9 / 16) : imageWidth * (1 / 5);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -66,10 +66,18 @@ const App = () => {
                 numberOfLines={3}
               />
               <View style={styles.buttonContainer}>
-                <Button title="Button 1" onPress={() => {}} />
+                <Button
+                  title="Button 1"
+                  onPress={() => {}}
+                  color={Platform.select({ ios: "blue", android: "green" })}
+                />
               </View>
               <View style={styles.buttonContainer}>
-                <Button title="Button 2" onPress={() => {}} />
+                <Button
+                  title="Button 2"
+                  onPress={() => {}}
+                  color={Platform.select({ ios: "blue", android: "green" })}
+                />
               </View>
             </View>
           ) : (
@@ -92,10 +100,18 @@ const App = () => {
               />
               <View style={styles.buttonRow}>
                 <View style={styles.buttonContainer}>
-                  <Button title="Button 1" onPress={() => {}} />
+                  <Button
+                    title="Button 1"
+                    onPress={() => {}}
+                    color={Platform.select({ ios: "blue", android: "green" })}
+                  />
                 </View>
                 <View style={styles.buttonContainer}>
-                  <Button title="Button 2" onPress={() => {}} />
+                  <Button
+                    title="Button 2"
+                    onPress={() => {}}
+                    color={Platform.select({ ios: "blue", android: "green" })}
+                  />
                 </View>
               </View>
             </View>
