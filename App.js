@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  StatusBar,
 } from "react-native";
 
 const App = () => {
@@ -33,11 +34,20 @@ const App = () => {
   const imageWidth = screenWidth * 0.8;
   const imageHeight = isPortrait ? imageWidth * (9 / 16) : imageWidth * (3 / 8);
 
+  // Tùy chỉnh thanh trạng thái
+  const statusBarStyle = isPortrait ? "light-content" : "dark-content";
+  const statusBarBackgroundColor = isPortrait ? "#000000" : "#ffffff";
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      <StatusBar
+        barStyle={statusBarStyle}
+        backgroundColor={statusBarBackgroundColor}
+        translucent={false}
+      />
       <ScrollView
         contentContainerStyle={styles.scrollViewContent}
         keyboardShouldPersistTaps="handled"
