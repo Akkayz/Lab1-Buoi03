@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Button,
   Image,
   StyleSheet,
   Dimensions,
@@ -11,6 +10,8 @@ import {
   StatusBar,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
+  Text,
 } from "react-native";
 
 const App = () => {
@@ -66,18 +67,60 @@ const App = () => {
                 numberOfLines={3}
               />
               <View style={styles.buttonContainer}>
-                <Button
-                  title="Button 1"
+                <TouchableOpacity
+                  style={[
+                    styles.customButton,
+                    {
+                      backgroundColor: Platform.select({
+                        ios: "blue", // iOS: nền xanh nước biển
+                        android: "green", // Android: nền xanh lá
+                      }),
+                    },
+                  ]}
                   onPress={() => {}}
-                  color={Platform.select({ ios: "blue", android: "green" })}
-                />
+                >
+                  <Text
+                    style={[
+                      styles.customButtonText,
+                      {
+                        color: Platform.select({
+                          ios: "white", // iOS: chữ trắng
+                          android: "white", // Android: chữ trắng
+                        }),
+                      },
+                    ]}
+                  >
+                    Button 1
+                  </Text>
+                </TouchableOpacity>
               </View>
               <View style={styles.buttonContainer}>
-                <Button
-                  title="Button 2"
+                <TouchableOpacity
+                  style={[
+                    styles.customButton,
+                    {
+                      backgroundColor: Platform.select({
+                        ios: "blue",
+                        android: "green",
+                      }),
+                    },
+                  ]}
                   onPress={() => {}}
-                  color={Platform.select({ ios: "blue", android: "green" })}
-                />
+                >
+                  <Text
+                    style={[
+                      styles.customButtonText,
+                      {
+                        color: Platform.select({
+                          ios: "white",
+                          android: "white",
+                        }),
+                      },
+                    ]}
+                  >
+                    Button 2
+                  </Text>
+                </TouchableOpacity>
               </View>
             </View>
           ) : (
@@ -100,18 +143,60 @@ const App = () => {
               />
               <View style={styles.buttonRow}>
                 <View style={styles.buttonContainer}>
-                  <Button
-                    title="Button 1"
+                  <TouchableOpacity
+                    style={[
+                      styles.customButton,
+                      {
+                        backgroundColor: Platform.select({
+                          ios: "blue",
+                          android: "green",
+                        }),
+                      },
+                    ]}
                     onPress={() => {}}
-                    color={Platform.select({ ios: "blue", android: "green" })}
-                  />
+                  >
+                    <Text
+                      style={[
+                        styles.customButtonText,
+                        {
+                          color: Platform.select({
+                            ios: "white",
+                            android: "white",
+                          }),
+                        },
+                      ]}
+                    >
+                      Button 1
+                    </Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.buttonContainer}>
-                  <Button
-                    title="Button 2"
+                  <TouchableOpacity
+                    style={[
+                      styles.customButton,
+                      {
+                        backgroundColor: Platform.select({
+                          ios: "blue",
+                          android: "green",
+                        }),
+                      },
+                    ]}
                     onPress={() => {}}
-                    color={Platform.select({ ios: "blue", android: "green" })}
-                  />
+                  >
+                    <Text
+                      style={[
+                        styles.customButtonText,
+                        {
+                          color: Platform.select({
+                            ios: "white",
+                            android: "white",
+                          }),
+                        },
+                      ]}
+                    >
+                      Button 2
+                    </Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -149,6 +234,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
+  },
+  customButton: {
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  customButtonText: {
+    fontSize: 16,
   },
   input: {
     borderColor: "gray",
